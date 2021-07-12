@@ -16,37 +16,31 @@ const Place= [
 console.log(Place);
 
 class Search extends React.Component{
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state = {
-            data: Place,
-            listData: [],
-            searchWord: '',
-        }
-        this.searchItems = this.searchItems.bind(this);
+        this.state = {value: ''}
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    componentDidMount() {
-        this.setState({ listData: this.state.data});
+    handleChange(event) {
+        this.setState({value: event.target.value});
     }
 
-    searchItems(searchWord) {
-        let listData = this.state.data.filter((item) => {
-            return item.name.indexOf(searchWord) > -1;
-        })
+    handleSubmit(event) {
+        alert('This is not work:' + this.state.value);
+        event.preventDefault();
     }
 
     render(){
-        let list = [];
-        for (let i in this.state.listData) {
-            list.push(<item data={this.state.listData[i]} />)
-        }
         return(
-            <div>
-                <input type="search" value={this.state.searchWord} onChange={(event) => this.searchItems(event.target.value)} />
-                {list}
-
-            </div>
+            <form onSubmit={this.handleSubmit}>
+                <label>
+                    Onsen:
+                    <input type="text" value={this.state.value} onChange={this.handleChange} />
+                </label>
+                <input type="submit" value="Submit" />
+            </form>
         )
     }
 }
