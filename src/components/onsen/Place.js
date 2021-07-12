@@ -1,8 +1,7 @@
-import React, { useCalleback, useRef } from 'react';
-import { GoogleMap, LoadScript } from 'react-google-maps';
+import React from 'react';
+import { GoogleMap, LoadScript } from '@react-google-maps/api';
 
-
-const mapSize = {
+const mapStyle= {
     height: "50vh",
     width: "50%"
 };
@@ -10,20 +9,20 @@ const mapSize = {
 const NAGANO = {
     lat: 36.74745,
     lng: 138.36941
-}
+};
 
-export default class Place extends React.Component {
-    render() {
-        return(
-                <LoadScript googleMapsApiKey="process.env.REACT_APP_API_KEY">
-                    <GoogleMap
-                      mapStyle={mapSize}
-                      center={NAGANO}
-                      zoom={10}
-                    >
-    
-                    </GoogleMap>
-                </LoadScript>
-        )
-    }
-}
+const Place = () => {
+    return(
+        <LoadScript key="GoogleMapAPIKey">
+            <GoogleMap
+              mapContainerStyle={mapStyle}
+              center={NAGANO}
+              zoom={12}
+            >
+
+            </GoogleMap>
+        </LoadScript>
+    );
+};
+
+export default Place;
