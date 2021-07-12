@@ -8,6 +8,7 @@ export default class Home extends React.Component{
             <div>
                 <Container>
                     <h1>Home</h1>
+                    <Search />
                     <Place />
                 </Container>
             </div>

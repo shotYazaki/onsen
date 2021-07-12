@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const Place= [
     {id:1, name: "ぽんぽこの湯", place: "中野市", url: "http://ponpoko.fun/"},
@@ -33,10 +33,6 @@ class Search extends React.Component{
     searchItems(searchWord) {
         let listData = this.state.data.filter((item) => {
             return item.name.indexOf(searchWord) > -1;
-            this.setState({
-                listData: listData,
-                searchWord: searchWord,
-            });
         })
     }
 
